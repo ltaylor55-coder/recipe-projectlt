@@ -1,67 +1,193 @@
-
-/* General page styles */
+/* ==============================
+   General Page Styles
+============================== */
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
   padding: 0;
-  background: linear-gradient(to bottom, #fffaf5, #fff3e0); /* orange glow */
-  color: #333;
   line-height: 1.6;
+  color: #222;
+  transition: background 0.5s ease;
 }
 
-/* Container for each page */
+/* ==============================
+   Recipe Page Backgrounds
+============================== */
+body.spaghetti {
+  background-color: #ffe6e6; /* light red */
+}
+
+body.omelet {
+  background-color: #f5e6d6; /* light brown */
+}
+
+body.salad {
+  background-color: #e6ffe6; /* light green */
+}
+
+/* ==============================
+   Container
+============================== */
 .container {
   width: 80%;
+  max-width: 1200px;
   margin: auto;
   padding: 20px;
 }
 
-/* Headings */
+/* ==============================
+   Headings
+============================== */
 h1, h2 {
   text-align: center;
-  color: #444;
+  margin-bottom: 20px;
+  font-weight: 700;
+  color: inherit;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
 }
 
-/* Recipe images */
+/* ==============================
+   Recipe Cards
+============================== */
+.recipe-card {
+  background-color: #fff; /* keeps text readable */
+  padding: 25px;
+  border-radius: 15px;
+  max-width: 600px;
+  margin: 20px auto;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.recipe-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.18);
+}
+
+/* Card Top Borders by Recipe */
+body.spaghetti .recipe-card { border-top: 5px solid #ff4d4d; }
+body.omelet .recipe-card { border-top: 5px solid #c49b66; }
+body.salad .recipe-card { border-top: 5px solid #33cc33; }
+
+/* ==============================
+   Lists inside cards
+============================== */
+ul, ol {
+  padding-left: 20px;
+  margin-top: 10px;
+  background: rgba(255,255,255,0.9);
+  border-radius: 10px;
+  padding: 15px 20px;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
+}
+
+/* ==============================
+   Images
+============================== */
 img {
   display: block;
   margin: 20px auto;
-  max-width: 400px;   /* keeps all recipe images the same size */
+  max-width: 100%;
   height: auto;
-  border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  border-radius: 15px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+  border: 3px solid #ffd9b3;
 }
 
-/* Recipe card style (ingredients and steps) */
-ul, ol {
-  max-width: 600px;
-  margin: 20px auto;
-  padding: 20px;
-  background: #fff;
-  border-radius: 10px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-}
-
-/* Links */
+/* ==============================
+   Links (Buttons)
+============================== */
 a {
-  display: block;
-  text-align: center;
-  margin-top: 20px;
-  text-decoration: none;
-  color: #d35400; /* warm orange */
+  display: inline-block;
+  padding: 10px 25px;
+  border-radius: 25px;
   font-weight: bold;
+  margin-top: 15px;
+  text-decoration: none;
+  color: #fff;
+  transition: all 0.3s ease;
+  text-align: center;
 }
 
-a:hover {
-  color: #e67e22;
-  text-decoration: underline;
+/* Button colors per recipe */
+body.spaghetti a { background-color: #ff4d4d; }
+body.spaghetti a:hover { background-color: #e03e3e; }
+
+body.omelet a { background-color: #c49b66; }
+body.omelet a:hover { background-color: #a17b4f; }
+
+body.salad a { background-color: #33cc33; }
+body.salad a:hover { background-color: #28a428; }
+
+/* ==============================
+   Header and Main Styling
+============================== */
+header {
+  text-align: center;
+  padding: 30px 20px;
+  background: rgba(255,255,255,0.9);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  margin-bottom: 20px;
 }
 
-/* Footer */
+header h1 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+main {
+  padding: 0 20px 40px;
+}
+
+main ul {
+  list-style: none;
+  padding: 0;
+  text-align: center;
+}
+
+main ul li {
+  margin: 10px 0;
+}
+
+main ul li a {
+  font-size: 1.1rem;
+  padding: 10px 20px;
+  border-radius: 20px;
+  background-color: #555;
+  color: #fff;
+  transition: background 0.3s;
+}
+
+main ul li a:hover {
+  background-color: #333;
+}
+
+/* ==============================
+   Footer
+============================== */
 footer {
   text-align: center;
-  padding: 15px;
-  margin-top: 30px;
+  padding: 20px;
   font-size: 0.9rem;
   color: #555;
+  border-top: 1px solid rgba(0,0,0,0.1);
+  margin-top: 40px;
 }
+
+/* ==============================
+   Responsive Design
+============================== */
+@media (max-width: 600px) {
+  .recipe-card {
+    max-width: 90%;
+  }
+
+  header h1 {
+    font-size: 1.5rem;
+  }
+
+  main ul li a {
+    font-size: 1rem;
+  }
+}
+
